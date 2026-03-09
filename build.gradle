@@ -33,7 +33,17 @@ dependencies {
     // Tests
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // MockWebServer (testing WebClient calls)
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.12.0'
+    testImplementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // Embedded MongoDB (for integration/E2E tests without Docker)
+    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring3x:4.24.0'
 }
+
+layout.buildDirectory = file("${System.getProperty('java.io.tmpdir')}/gradle-build/fluentbase-chat-api")
 
 tasks.named('test') {
     useJUnitPlatform()

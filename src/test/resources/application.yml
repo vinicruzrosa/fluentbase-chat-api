@@ -1,7 +1,8 @@
-spring:
-  data:
+de:
+  flapdoodle:
     mongodb:
-      uri: ${MONGODB_URI:mongodb://localhost:27017/fluencydb-test}
+      embedded:
+        version: 7.0.0
 
 ai-orchestrator:
   url: ${AI_ORCHESTRATOR_URL:http://localhost:8000}
