@@ -1,11 +1,20 @@
 spring:
+  application:
+    name: chat-service
+  threads:
+    virtual:
+      enabled: true
   data:
     mongodb:
-      uri: ${MONGODB_URI:mongodb://localhost:27017/fluencydb}
+      uri: ${MONGODB_URI:mongodb://localhost:27017/fluentbase_chat}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
 
-ai-orchestrator:
-  url: ${AI_ORCHESTRATOR_URL:http://localhost:8000}
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
+rabbitmq:
+  queues:
+    analysis-requested: analysis.requested
+    analysis-completed: analysis.completed
+    dlq-suffix: .dlq

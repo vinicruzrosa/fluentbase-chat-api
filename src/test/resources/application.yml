@@ -4,5 +4,9 @@ de:
       embedded:
         version: 7.0.0
 
-ai-orchestrator:
-  url: ${AI_ORCHESTRATOR_URL:http://localhost:8000}
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
